@@ -1,25 +1,2 @@
-#!/usr/bin/python3
-import sys
-import os
-
-if len(sys.argv) != 2:
-    print("Usage: ./101-compile <source_file>")
-    sys.exit(1)
-
-source_file = sys.argv[1]
-output_file = os.path.splitext(source_file)[0] + ".pyc"
-
-print("Compiling {} ...".format(source_file))
-try:
-    with open(source_file, 'rb') as f:
-        compiled_code = compile(f.read(), source_file, 'exec')
-    with open(output_file, 'wb') as f:
-        f.write(compiled_code.co_code)
-except FileNotFoundError:
-    print("File not found: {}".format(source_file))
-    sys.exit(1)
-except Exception as e:
-    print("Compilation failed: {}".format(e))
-    sys.exit(1)
-
-print("{} created".format(output_file))
+#!/bin/bash
+python3 -m compileall -b $PYFILE i
