@@ -17,4 +17,4 @@ def roman_to_int(roman_string):
         else:
             resl += val
             prval = val
-    return result
+    return resl
