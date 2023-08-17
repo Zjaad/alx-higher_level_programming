@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 def roman_to_int(roman_string):
-    if not roman_string or not isinstance(roman_string, str):
-        return 0
+    
     romanvals = {
         'I': 1, 'V': 5, 'X': 10, 'L': 50,
         'C': 100, 'D': 500, 'M': 1000
@@ -10,11 +9,12 @@ def roman_to_int(roman_string):
     resl = 0
     prval = 0 
 
-    for char in reversed(roman_string):
-        val = romanvals[char]
-        if val < prval:
-            resl -= val
+    if isinstance(roman_string, str) and roman_string:
+        for char in reversed(roman_string):
+        val_ = romanvals[char]
+        if val_ >= prval:
+            resl += val_
         else:
-            resl += val
-            prval = val
+            resl -= val_
+        prval = val_
     return resl
