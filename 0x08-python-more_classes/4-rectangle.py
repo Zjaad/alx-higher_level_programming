@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 class Rectangle:
-    """ def rectangle """
+    """ rectangle def """
     def __init__(self, width=0, height=0):
         self.width = width
         self.height = height
@@ -9,7 +9,7 @@ class Rectangle:
     @property
     """ width """
     def width(self):
-        return (self.__width)
+        return self.__width
 
     @width.setter
     def width(self, value):
@@ -22,7 +22,7 @@ class Rectangle:
     @property
     """ height """
     def height(self):
-        return (self.__height)
+        return self.__height
 
     @height.setter
     def height(self, value):
@@ -36,19 +36,19 @@ class Rectangle:
         return (self.__width * self.__height)
 
     def perimeter(self):
-        if self.__width == 0 or self.__height == 0:
-            return (0)
-        else:
-            return ((self.__width * 2) + (self.__height * 2))
+        return (self.__width * 2 + self.__height * 2) if (self.__width > 0 and self.__height > 0) else 0
 
-    def _draw_rectangle(self):
+    def draw(self):
         res = ""
-        for row in range(self.__height):
-            for col in range(self.__width):
-                res += '#'
-            if self.__width != 0 and row < (self.__height - 1):
-                res += '\n'
-        return (res)
+        for y in range(self.__height):
+            for x in range(self.__width):
+                res += "#"
+            if y != self.__height - 1:
+                res += "\n"
+        return res
 
     def __str__(self):
-        return (self._draw_rectangle())
+        return self.draw()
+
+    def __repr__(self):
+        return "Rectangle({}, {})".format(self.__width, self.__height)
