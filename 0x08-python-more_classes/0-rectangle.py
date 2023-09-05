@@ -1,8 +1,7 @@
 #!/usr/bin/python3
-"""Defines a Rectangle class"""
-
+"""task number 0"""
 
 
 class Rectangle:
-    """Represantation of an empty Rectangle."""
+    """Representation of the rectangle."""
     pass
