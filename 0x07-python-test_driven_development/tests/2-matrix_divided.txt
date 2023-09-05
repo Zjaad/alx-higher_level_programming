@@ -9,13 +9,13 @@ this module defines a function `matrix_divided(matrix, div)` , it divides all el
 
 ## Usage
 
-- `matrix`: A list containing integers or floats.
+- "matrix": A list containing integers or floats.
 
---- 	The `matrix_divided` function takes two parameters: 
+--- 	The "matrix_divided" function takes two parameters: 
 
----		 "matrix_divided(...)" returns a new matrix that is a copy of the parameter
+---		"matrix_divided(...)" returns a new matrix that is a copy of the parameter
 
----	 	`div`: A number (int or float) to divide the elements of the matrix by.
+---	 	"div": A number (int or float) to divide the elements of the matrix by.
 
 The function returns a new matrix where all the elements are divided by `div`, rounded to two decimal places.
 
@@ -25,7 +25,60 @@ matrix_divided = __import__('2-matrix_divided').matrix_divided
 ...	[2, 4, 6],
 ...	[8, 10, 12]
 ...	]
->>> print(matrix_divided(matrix, 2))
+>>> print(matrix_divided(matrix, 3))
 [[1.0, 2.0, 3.0], [4.0, 5.0, 6.0]]
 
 
+The quotients are rounded to a maximum of two decimal places.
+
+>>> matrix = [
+...     [1, 2, 3],
+...     [4, 5, 6]
+... ]
+>>> print(matrix_divided(matrix, 3))
+[[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+
+The original matrix doesn't changed.
+
+>>> print(matrix)
+[[1, 2, 3], [4, 5, 6]]
+
+
+function can also handle floats.
+
+>>> matrix = [
+...     [1.1, -2.2, 3.3],
+...     [4.4, 5.5, -6.6]
+... ]
+>>> print(matrix_divided(matrix, 3))
+[[0.37, -0.73, 1.1], [1.47, 1.83, -2.2]]
+
+the int and floats can mixed.
+
+>>> matrix = [
+...     [1, -2.2, 3, 4.4, 5],
+...     [-6.6, 7.00, 8, 9.999, 10]
+... ]
+>>> print(matrix_divided(matrix, 3))
+[[0.33, -0.73, 1.0, 1.47, 1.67], [-2.2, 2.33, 2.67, 3.33, 3.33]]
+
+# empty list case :
+
+>>> matrix = [[]]
+>>> print(matrix_divided(matrix, 3))
+[[]]
+
+
+# Error case :
+## Invalid matrix
+
+The parameter "matrix" should be a list  consisting of int or
+floats. 
+TypeError : if the "matrix" is not a List.
+
+::
+
+    >>> matrix = "not a list"
+    >>> print(matrix_divided(matrix, 3))
+    Traceback (most recent call last):
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
