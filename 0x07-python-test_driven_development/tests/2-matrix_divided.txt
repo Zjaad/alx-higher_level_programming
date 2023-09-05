@@ -1,0 +1,31 @@
+# 2-matrix_divided.txt
+
+## How to Use 2-matrix_divided.py
+
+## introduction
+
+this module defines a function `matrix_divided(matrix, div)` , it divides all elements of a matrix by a specified divisor `div`.
+
+
+## Usage
+
+- `matrix`: A list containing integers or floats.
+
+--- 	The `matrix_divided` function takes two parameters: 
+
+---		 "matrix_divided(...)" returns a new matrix that is a copy of the parameter
+
+---	 	`div`: A number (int or float) to divide the elements of the matrix by.
+
+The function returns a new matrix where all the elements are divided by `div`, rounded to two decimal places.
+
+```python
+matrix_divided = __import__('2-matrix_divided').matrix_divided 
+>>> matrix = [
+...	[2, 4, 6],
+...	[8, 10, 12]
+...	]
+>>> print(matrix_divided(matrix, 2))
+[[1.0, 2.0, 3.0], [4.0, 5.0, 6.0]]
+
+

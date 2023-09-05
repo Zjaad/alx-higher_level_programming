@@ -1,0 +1,78 @@
+# 0-add_integer.txt
+
+##How to Use 0-add_integer.py
+
+
+1. [Introduction](#introduction)
+2. [Usage](#usage)
+3. [Function Description](#function-description)
+4. [Examples](#examples)
+5. [Error Handling](#error-handling)
+6. [Testing](#testing)
+7. [Conclusion](#conclusion)
+
+
+
+## introduction
+
+This documentation provides an overview of the `add_integer` function, its usage, functionality, and examples. The `add_integer` function is designed to add two integers or floating-point numbers and return the result as an integer.
+
+
+## Usage
+
+"add_integer(...)" function returns the sum of the two arguments, it's a a+b operation
+
+
+```python 
+>>> add_integer = __import__('0-add_integer').add_integer
+>>> add_integer(2, 5)
+7
+
+>>> add_integer(2, -5)
+-3
+
+-the function working with floats
+>>> add_integer(1.0, 3.0)
+4
+
+-the floats are casted to int before addition is performed.
+
+>>> add_integer(2.9, 1.2)
+3
+
+-The mixing Integers and Floats
+
+>>> add_integer(3.5, 3)
+6
+
+
+## Error Handling
+
+The `add_integer` function provides error handling for non-integer or non-float inputs. If either `a` or `b` is not a valid numeric type, it raises a `TypeError` with an appropriate message.
+
+for example 
+
+
+```python
+>>> add_integer("hello", 1)
+Traceback (most recent call last):
+  TypeError: a must be an integer
+
+
+## Testing
+
+To verify the correctness of `add_integer` function, a test suite can be executed using the following command:
+
+```bash
+python3 -m doctest ./tests/0-add_integer.txt
+
+
+## Conclusion
+
+In conclusion, the `add_integer` function is a straightforward yet valuable utility in Python for performing integer addition. It offers clear error handling for non-integer or non-float inputs and has been thoroughly tested to guarantee its reliability.
+
+By adhering to the provided usage instructions and test cases, you can confidently use this function in your Python projects to perform integer addition efficiently.
+
+For more details and to access the source code and accompanying test cases, please refer to the appropriate files in your project repository.
+
+## ## ## ## ## ## ## ## ## ## ## ##
