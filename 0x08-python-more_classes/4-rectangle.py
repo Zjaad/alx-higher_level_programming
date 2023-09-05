@@ -1,54 +1,73 @@
 #!/usr/bin/python3
+"""task number 4"""
+
 
 class Rectangle:
-    """ rectangle def """
-    def __init__(self, width=0, height=0):
-        self.width = width
-        self.height = height
+    """Representation of the rectangle."""
+
+    def __init__(self, we=0, h=0):
+        """Initialization a new Rectangle.
+
+        Args:
+            we (int):  width of the new rectangle.
+            h (int):  height of the new rectangle.
+        """
+        self.we = we
+        self.h = h
 
     @property
-    """ width """
-    def width(self):
-        return self.__width
+    def we(self):
+        """Get width of the Rectangle."""
+        return (self.__we)
 
-    @width.setter
-    def width(self, value):
+    @we.setter
+    def we(self, value):
         if not isinstance(value, int):
-            raise TypeError('width must be an integer')
-        elif value < 0:
-            raise ValueError('width must be >= 0')
-        self.__width = value
-
-    @property
-    """ height """
-    def height(self):
-        return self.__height
-
-    @height.setter
-    def height(self, value):
-        if not isinstance(value, int):
-            raise TypeError('height must be an integer')
+            raise TypeError("width must be an integer")
         if value < 0:
-            raise ValueError('height must be >= 0')
-        self.__height = value
+            raise ValueError("width must be >= 0")
+        self.__we = value
+
+    @property
+    def h(self):
+        """Get  height of the Rectangle."""
+        return (self.__h)
+
+    @h.setter
+    def h(self, value):
+        if not isinstance(value, int):
+            raise TypeError("height must be an integer")
+        if value < 0:
+            raise ValueError("height must be >= 0")
+        self.__h = value
 
     def area(self):
-        return (self.__width * self.__height)
+        """Returns area of the Rectangle."""
+        return (self.__we * self.__h)
 
     def perimeter(self):
-        return (self.__width * 2 + self.__height * 2) if (self.__width > 0 and self.__height > 0) else 0
-
-    def draw(self):
-        res = ""
-        for y in range(self.__height):
-            for x in range(self.__width):
-                res += "#"
-            if y != self.__height - 1:
-                res += "\n"
-        return res
+        """Returns perimeter of the Rectangle."""
+        if self.__we == 0 or self.__h == 0:
+            return (0)
+        return ((self.__we * 2) + (self.__h * 2))
 
     def __str__(self):
-        return self.draw()
+        """Returns a printable representation of the Rectangle.
+
+        Representation of rectangle with the # character.
+        """
+        if self.__we == 0 or self.__h == 0:
+            return ("")
+
+        recto = []
+        for x in range(self.__h):
+            [recto.append('#') for y in range(self.__we)]
+            if x != self.__h - 1:
+                recto.append("\n")
+        return ("".join(recto))
 
     def __repr__(self):
-        return "Rectangle({}, {})".format(self.__width, self.__height)
+        """Returns  string representation of the Rectangle."""
+        recto = "Rectangle(" + str(self.__we)
+        recto += ", " + str(self.__h) + ")"
+        return (recto)

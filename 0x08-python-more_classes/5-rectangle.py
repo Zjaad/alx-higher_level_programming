@@ -1,14 +1,23 @@
 #!/usr/bin/python3
+"""task number 5"""
+
 
 class Rectangle:
-    """ Detectition of instance deletion """ 
+    """Representation a rectangle."""
+
     def __init__(self, width=0, height=0):
+        """Initialization of the new Rectangle.
+
+        Args:
+            width (int): width of the new rectangle.
+            height (int): height of the new rectangle.
+        """
         self.width = width
         self.height = height
 
     @property
-    """ width """
     def width(self):
+        """Get  width of the Rectangle."""
         return (self.__width)
 
     @width.setter
@@ -20,8 +29,8 @@ class Rectangle:
         self.__width = value
 
     @property
-    """ height """
     def height(self):
+        """Get height of the Rectangle."""
         return (self.__height)
 
     @height.setter
@@ -33,20 +42,36 @@ class Rectangle:
         self.__height = value
 
     def area(self):
+        """Returns area of the Rectangle."""
         return (self.__width * self.__height)
 
     def perimeter(self):
+        """Returns  perimeter of the Rectangle."""
         if self.__width == 0 or self.__height == 0:
             return (0)
-        return (2 * (self.__width + self.__height))
+        return ((self.__width * 2) + (self.__height * 2))
 
     def __str__(self):
+        """Returns a printable representation of the Rectangle.
+
+        Representation of rectangle with the # character.
+        """
         if self.__width == 0 or self.__height == 0:
             return ("")
-        return ('\n'.join(['#' * self.__width] * self.__height))
+
+        recto = []
+        for x in range(self.__height):
+            [recto.append('#') for y in range(self.__width)]
+            if x != self.__height - 1:
+                recto.append("\n")
+        return ("".join(recto))
 
     def __repr__(self):
-        return (f"Rectangle({self.__width}, {self.__height})")
+        """Returns string representation of the Rectangle."""
+        recto = "Rectangle(" + str(self.__width)
+        recto += ", " + str(self.__height) + ")"
+        return (recto)
 
     def __del__(self):
+        """a message for every deletion of a Rectangle."""
         print("Bye rectangle...")
