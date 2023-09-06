@@ -1,6 +1,4 @@
 #!/usr/bin/python3
-
+""" defines a locked class  """
 class LockedClass:
-    def __setattr__(self, name, value):
-        if name != "first_name":
-            raise AttributeError("'LockedClass' object has no attribute '{}'".format(name))
+    __slots__ = ['first_name']
