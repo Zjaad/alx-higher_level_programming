@@ -6,11 +6,11 @@ class LockedClass:
     except if new instance attribute is called first_name.
 
     Attributes:
-        first_name (str): first name of something.
+        first_name (str): first name.
     """
 
     __slots__ = ["first_name"]
 
-    def __init__(se):
+    def __init__(self):
         """Initializes a new instance of LockedClass."""
-        se.first_name = None
+        self.first_name = None
