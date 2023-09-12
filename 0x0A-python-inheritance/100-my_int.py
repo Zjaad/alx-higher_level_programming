@@ -4,11 +4,10 @@
 
 class MyInt(int):
     """MyInt class"""
-
     def __eq__(self, value):
-        
+        """Override the != operator to compare real parts."""
         return (self.real != value)
 
     def __ne__(self, value):
-        
+        """Override the == operator to compare real parts."""
         return (self.real == value)
