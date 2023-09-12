@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-"""Task n1"""
+"""Defines  object attribute lookup func."""
+
+
 def lookup(obj):
-    """Return a list of an object's available attributes."""
+    """Returns  list of the object is available attributes."""
     return dir(obj)
