@@ -1,0 +1,14 @@
+# test code
+
+
+# Test case 1: Creating a MyList instance and appending integers
+python3 -m doctest -v ./tests/1-my_list.txt | tail -2
+
+
+# Test case 2: Printing the original list
+python3 -m doctest -v ./tests/1-my_list.txt | tail -2
+
+
+# Test case 3: Sorting and printing the list
+python3 -m doctest -v ./tests/1-my_list.txt | tail -2
+
