@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-"""a function that writes a string to a text file (UTF8) and returns the number of characters written"""
+"""Function that writes a string to a text file UTF8 and returns the number of characters written."""
 
 
 def write_file(filename="", text=""):
-    """the function that write string to UTF8 text.
+    """The function that write string to UTF8 text.
 
     Args:
         filename (str): The file to write.
