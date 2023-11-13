@@ -1,3 +1,4 @@
+#!/usr/bin/node
 const arl = process.argv.length;
 
 if (arl === 2) {
