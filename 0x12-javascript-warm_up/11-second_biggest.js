@@ -9,4 +9,3 @@ if (uniqueArgs.length < 2) {
   const sortedArgs = uniqueArgs.sort((a, b) => b - a);
   console.log(sortedArgs[1]);
 }
-
