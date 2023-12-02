@@ -1,21 +1,24 @@
-import requests
+#!/usr/bin/python3
+""" takes 2 arguments in order to solve this challenge. task n10."""
 from sys import argv
-"""Takes 2 arguments in order to solve this challenge. task n10."""
-if __name__ == '__main__':
+import requests
+if __name__ == "__main__":
     if len(argv) != 3:
-        print("Usage: python script.py owner repository")
+        print("Usage: ./100-github_commits.py <repository name> <repository owner>")
     else:
-        owner = argv[1]
-        repository = argv[2]
-        link = f'https://api.github.com/repos/{owner}/{repository}/commits'
-        headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'}
+        repository = argv[1]
+        owner = argv[2]
+        link = f"https://api.github.com/repos/{owner}/{repository}/commits"
+        
         try:
             r = requests.get(link)
             r.raise_for_status()
-            commit = r.json()
-            for c in commit[:10]:
-                sha = c.get('sha')
-                author = c.get('commit', {}).get('author', {}).get('name', 'Unknown')
+            commits = r.json()
+            for c in range(10):
+                sha = commits[c].get("sha")
+                author = commits[c].get("commit").get("author").get("name")
                 print(f"{sha}: {author}")
         except requests.exceptions.RequestException as e:
             print(f"Error: {e}")
+        except IndexError:
+            print("Less than 10 commits available.")
