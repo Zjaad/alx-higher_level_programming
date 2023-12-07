@@ -1,2 +1,0 @@
--- show db
-SHOW DATABASES;
