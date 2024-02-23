@@ -1,18 +1,22 @@
 #!/usr/bin/python3
-import sys
+"""
+Displays List of  all states from hbtn_0e_0_usa DB.
+"""
 import MySQLdb
-
-def safe_filter_states(username, password, dbname, state_name):
-    """Safely display all states matching the user-provided name."""
-    datab = MySQLdb.connect(host="localhost", port=3306, user=username,
-                         passwd=password, db=dbname)
-    c = datab.cursor()
-    c.execute("SELECT * FROM states WHERE name = %s ORDER BY id ASC", (state_name,))
-    r = c.fetchall()
-    for ir in r:
-        print(ir)
-    c.close()
-    datab.close()
-
+import sys
 if __name__ == "__main__":
-    safe_filter_states(sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4])
+    try:
+        datab = MySQLdb.connect(host="localhost", user=sys.argv[1],
+                             passwd=sys.argv[2], db=sys.argv[3], port=3306)
+        c = datab.cursor()
+        c.execute("SELECT * FROM states")
+        r = c.fetchall()
+        for ri in r:
+            print(ri)
+    except MySQLdb.Error as w:
+        print("Error:", w)
+    finally:
+        if c:
+            c.close()
+        if datab:
+            datab.close()
